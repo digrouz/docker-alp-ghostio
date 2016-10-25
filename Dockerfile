@@ -17,7 +17,7 @@ RUN apk --no-cache upgrade && \
       su-exec && \
 	curl -L https://ghost.org/zip/ghost-latest.zip -o /tmp/ghost.zip && \
 	mkdir /ghost && \
-	unzip -uo ghost.zip -d /ghost && \
+	unzip -uo /tmp/ghost.zip -d /ghost && \
 	cd /ghost && \
 	npm install --production && \
     apk del --no-cache --purge \
