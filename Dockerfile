@@ -10,11 +10,16 @@ ENV LANG='en_US.UTF-8' \
 ### Install Application
 RUN apk --no-cache upgrade && \
     apk add --no-cache --virtual=build-deps \
-      gcc \
-      musl-dev && \
+      unzip \
+      curl && \
     apk add --no-cache --virtual=run-deps \
-      ssmtp \
+      nodejs-lts \
       su-exec && \
+	curl -L https://ghost.org/zip/ghost-latest.zip -o /tmp/ghost.zip && \
+	mkdir /ghost && \
+	unzip -uo ghost.zip -d /ghost && \
+	cd /ghost && \
+	npm install --production && \
     apk del --no-cache --purge \
       build-deps  && \
     rm -rf /tmp/* \
@@ -22,10 +27,10 @@ RUN apk --no-cache upgrade && \
            /var/tmp/*
 
 ### Volume
-VOLUME ["/project"]
+#VOLUME ["/ghost"]
 
 ### Expose ports
-EXPOSE 80
+EXPOSE 2368
 
 ### Running User: not used, managed by docker-entrypoint.sh
 #USER ghost
