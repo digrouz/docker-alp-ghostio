@@ -36,6 +36,6 @@ EXPOSE 2368
 #USER ghost
 
 ### Start Mezzanine
-#COPY ./docker-entrypoint.sh /
-#ENTRYPOINT ["/docker-entrypoint.sh"]
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["ghost"]
