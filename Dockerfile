@@ -15,11 +15,12 @@ RUN apk --no-cache upgrade && \
     apk add --no-cache --virtual=run-deps \
       nodejs-lts \
       su-exec && \
-	curl -L https://ghost.org/zip/ghost-latest.zip -o /tmp/ghost.zip && \
-	mkdir /ghost && \
-	unzip -uo /tmp/ghost.zip -d /ghost && \
-	cd /ghost && \
-	npm install --production && \
+    curl -L https://ghost.org/zip/ghost-latest.zip -o /tmp/ghost.zip && \
+    mkdir /ghost && \
+    unzip -uo /tmp/ghost.zip -d /ghost && \
+    cd /ghost && \
+    npm install --production && \
+    npm install --save pg@latest && \
     apk del --no-cache --purge \
       build-deps  && \
     rm -rf /tmp/* \
