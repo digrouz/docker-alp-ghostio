@@ -11,6 +11,9 @@ ENV LANG='en_US.UTF-8' \
 RUN apk --no-cache upgrade && \
     apk add --no-cache --virtual=build-deps \
       unzip \
+      gcc \
+      make \
+      python \
       curl && \
     apk add --no-cache --virtual=run-deps \
       ca-certificates \
@@ -22,6 +25,7 @@ RUN apk --no-cache upgrade && \
     cd /ghost && \
     npm install --production && \
     npm install --save pg@latest && \
+    npm cache clean && \
     apk del --no-cache --purge \
       build-deps  && \
     rm -rf /tmp/* \
