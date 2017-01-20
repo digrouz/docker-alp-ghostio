@@ -12,7 +12,8 @@ AutoUpgrade(){
       export DEBIAN_FRONTEND=noninteractive
       /usr/bin/apt update
       /usr/bin/apt -y --no-install-recommends upgrade
-      rm -rf /var/lib/apt/lists/*
+      /bin/rm -rf /var/lib/apt/lists/*
+    fi
   fi
 }
 
