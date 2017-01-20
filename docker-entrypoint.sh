@@ -4,6 +4,12 @@ MYUSER="ghost"
 MYGID="10010"
 MYUID="10010"
 
+AutoUpgrade(){
+  if [ -e /etc/alpine-release ]; then
+    apk --no-cache upgrade
+  fi
+}
+
 ConfigureUser () {
   # Managing user
   if [ -n "${DOCKUID}" ]; then
@@ -44,6 +50,7 @@ ConfigureUser () {
   fi
 }
 
+AutoUpgrade
 ConfigureUser
 
 if [ "$1" == 'ghost' ]; then
