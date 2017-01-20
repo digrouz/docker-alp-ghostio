@@ -7,6 +7,12 @@ MYUID="10010"
 AutoUpgrade(){
   if [ -e /etc/alpine-release ]; then
     apk --no-cache upgrade
+  elif [ -e /etc/os-release ]; then
+    if /bin/grep -q "NAME=\"Ubuntu\"" /etc/os-release ; then 
+      export DEBIAN_FRONTEND=noninteractive
+      /usr/bin/apt update
+      /usr/bin/apt -y --no-install-recommends upgrade
+      rm -rf /var/lib/apt/lists/*
   fi
 }
 
@@ -22,7 +28,7 @@ ConfigureUser () {
   local OLDHOME
   local OLDGID
   local OLDUID
-  bin/grep -q "${MYUSER}" /etc/passwd
+  /bin/grep -q "${MYUSER}" /etc/passwd
   if [ $? -eq 0 ]; then
     OLDUID=$(/usr/bin/id -u "${MYUSER}")
     OLDGID=$(/usr/bin/id -g "${MYUSER}")
