@@ -6,7 +6,8 @@ MYUID="10010"
 
 AutoUpgrade(){
   if [ -e /etc/alpine-release ]; then
-    apk --no-cache upgrade
+    /sbin/apk --no-cache upgrade
+    /bin/rm -rf /var/cache/apk/*
   elif [ -e /etc/os-release ]; then
     if /bin/grep -q "NAME=\"Ubuntu\"" /etc/os-release ; then 
       export DEBIAN_FRONTEND=noninteractive
