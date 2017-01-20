@@ -32,5 +32,5 @@ This variable is not mandatory and specifies the group id that will be set to ru
 
 ## Notes
 
-* The docker entrypoint will upgrade alpine at each startup.
+* The docker entrypoint will upgrade operating system at each startup.
 
