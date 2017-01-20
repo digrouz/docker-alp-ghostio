@@ -33,7 +33,7 @@ RUN apk --no-cache upgrade && \
            /var/tmp/*
 
 ### Volume
-#VOLUME ["/ghost"]
+VOLUME ["/ghost/content"]
 
 ### Expose ports
 EXPOSE 2368
