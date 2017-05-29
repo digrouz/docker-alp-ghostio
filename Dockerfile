@@ -18,7 +18,7 @@ RUN apk --no-cache upgrade && \
     apk add --no-cache --virtual=run-deps \
       ca-certificates \
       nodejs \
-      nodejs \
+      nodejs-npm \
       su-exec && \
     curl -L https://ghost.org/zip/ghost-latest.zip -o /tmp/ghost.zip && \
     mkdir /ghost && \
