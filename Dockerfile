@@ -19,7 +19,7 @@ RUN apk --no-cache upgrade && \
       nodejs \
       nodejs-npm \
       su-exec && \
-    curl -L https://ghost.org/zip/ghost-latest.zip -o /tmp/ghost.zip && \
+    curl -L https://github.com/TryGhost/Ghost/releases/download/0.11.11/Ghost-0.11.11.zip -o /tmp/ghost.zip && \
     mkdir /ghost && \
     unzip -uo /tmp/ghost.zip -d /ghost && \
     cd /ghost && \
