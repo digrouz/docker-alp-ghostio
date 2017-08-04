@@ -16,6 +16,7 @@ https://ghost.org/developers/
       -v <path to content>:/ghost/content \
       -e DOCKUID=<UID default:10010> \
       -e DOCKGID=<GID default:10010> \
+      -e DOCKUPGRADE=<0|1> \
       -p 2368:2368 digrouz/docker-alp-ghostio
 
 ## Environment Variables
@@ -30,7 +31,12 @@ This variable is not mandatory and specifies the user id that will be set to run
 
 This variable is not mandatory and specifies the group id that will be set to run the application. It has default value `10010`.
 
+### `DOCKUPGRADE`
+
+This variable is not mandatory and specifies if the container has to launch software update at startup or not. Valid values are `0` and `1`. It has default value `1`.
+
 ## Notes
 
-* The docker entrypoint will upgrade operating system at each startup.
+* The docker entrypoint will upgrade operating system at each startup. To disable this feature, just add `-e DOCKUPGRADE=0` at container creation.
+
 
