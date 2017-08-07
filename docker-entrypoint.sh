@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 MYUSER="ghost"
 MYGID="10010"
