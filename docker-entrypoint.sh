@@ -3,6 +3,7 @@
 MYUSER="ghost"
 MYGID="10010"
 MYUID="10010"
+OS=""
 MYUPGRADE="1"
 
 DectectOS(){
